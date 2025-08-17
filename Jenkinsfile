@@ -38,5 +38,11 @@ pipeline {
                 """
             }
         }
+
+        stage('Notify') {
+            steps {
+                discordSend description: "knexator's game worked", footer: "my footer", link: env.BUILD_URL, result: currentBuild.currentResult, title: env.JOB_NAME, webhookURL: "https://discord.com/api/webhooks/1403692153439391754/jQaX79xZrL0QqQ4PlwgmUwclwU4Fpriv1yxOowDFKiFPI8wmjoVsjeULtlC7QKFknd9a"
+            }
+        }
     }
 }
