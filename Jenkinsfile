@@ -33,7 +33,9 @@ pipeline {
 
         stage('Upload') {
             steps {
-                bat "butler push Build knexator/unity-ci-test:win"
+                bat """
+                    butler push "${pwd()}/Build" knexator/unity-ci-test:win
+                """
             }
         }
     }
