@@ -30,5 +30,11 @@ pipeline {
                 archiveArtifacts artifacts: 'Build/**/*', fingerprint: true
             }
         }
+
+        stage('Upload') {
+            steps {
+                bat "butler push Build knexator/unity-ci-test:win"
+            }
+        }
     }
 }
